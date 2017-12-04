@@ -7,7 +7,7 @@
         <language>en</language>
         <item>
             <title>Version 1.0.0</title>
-            <enclosure url="https://github.com/CaravelDesign/sketch-plugin/releases/1.0.0/caravel.sketchplugin.zip"
+            <enclosure url="https://github.com/CaravelDesign/caravel.sketchplugin/releases/download/1.0.0/caravel.sketchplugin.zip"
                        sparkle:version="1.0.0"/>
         </item>
     </channel>
