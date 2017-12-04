@@ -1,0 +1,28 @@
+{
+  "name": "caravel-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "authorEmail": "",
+  "author": "",
+  "identifier": "com.caravel.plugin.sketch.coco",
+  "commands": [
+    {
+      "name": "Sync artboards with Caravel",
+      "identifier": "sync",
+      "shortcut": "shift ctrl =",
+      "script": "pages.js"
+    },
+    {
+      "name": "Log in / log out of Caravel",
+      "identifier": "auth",
+      "script": "auth.js"
+    }
+  ],
+  "menu": {
+    "title": "Caravel",
+    "items": [
+      "sync",
+      "auth"
+    ]
+  }
+}
