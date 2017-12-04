@@ -2,19 +2,12 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
-        <title>Hello World Sketch Test Plugin</title>
-        <description>Brilliant Hello World Plugin</description>
+        <title>Caravel</title>
+        <description>This plugin allows Sketch users to export their designs directly to Caravel projects.</description>
         <language>en</language>
         <item>
             <title>Version 1.0.0</title>
-            <description>
-                <![CDATA[
-            <ul>
-              <li>Plug-in creation</li>
-            </ul>
-          ]]>
-            </description>
-            <enclosure url="https://github.com/CaravelDesign/sketch-plugin/releases/1.0.0/caravel-plugin.zip"
+            <enclosure url="https://github.com/CaravelDesign/sketch-plugin/releases/1.0.0/caravel.sketchplugin.zip"
                        sparkle:version="1.0.0"/>
         </item>
     </channel>
