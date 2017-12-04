@@ -1,6 +1,5 @@
 var api = new Api();
 var path = "https://api.caravel.design/";
-//var path = "https://aee7a512.ngrok.io/";
 var appURL = "https://www.caravel.design/";
 var exportPath = NSTemporaryDirectory() + "sketch-caravel-export/";
 
