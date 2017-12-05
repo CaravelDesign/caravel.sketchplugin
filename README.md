@@ -1,4 +1,6 @@
 # Caravel ❤ Sketch
+https://www.caravel.design
+
 ## Enough repetition. You can now quickly import your designs from Sketch.
 Product design is on the rise. The tools for the craft keep on multiplying, but that doesn’t mean your workflow should be doing the same. 
 
@@ -27,8 +29,6 @@ Once the plug-in is installed, all you need to do is log in to your Caravel acco
 4 — Confirm sync
 
 5 — Within a couple seconds, the plugin will have made its magic, and you can open up the chosen Caravel page and start annotating your screens (just refresh your screen in case it’s already opened).
-
-![caravel-sketch-gif](https://cdn-images-1.medium.com/max/800/1*w1qYkZQGn6_bo7dGxGVDuQ.gif "Caravel And Sketch")
 
 ## What if I update my designs on Sketch?
 Once your designs have been loaded in Caravel, feel free to make any changes to your Sketch file.
