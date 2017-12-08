@@ -1,5 +1,6 @@
 # Caravel ❤ Sketch
 https://www.caravel.design
+**[To install our Sketch plug-in please click here](https://github.com/CaravelDesign/caravel.sketchplugin/releases/download/1.0.0/caravel.sketchplugin.zip)**
 
 ## Enough repetition. You can now quickly import your designs from Sketch.
 Product design is on the rise. The tools for the craft keep on multiplying, but that doesn’t mean your workflow should be doing the same. 
