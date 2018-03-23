@@ -231,9 +231,9 @@ function UI() {
     var delegate = new MochaJSDelegate();
 
     var exportWindow = [[NSWindow alloc] init];
-    [exportWindow setFrame:NSMakeRect(0, 0, 470, 463) display: false];
+    [exportWindow setFrame:NSMakeRect(0, 0, 470, 406) display: false];
 
-    var headerView = [[NSView alloc] initWithFrame:NSMakeRect(0, 380, 470, 60)];
+    var headerView = [[NSView alloc] initWithFrame:NSMakeRect(0, 328, 470, 60)];
     [headerView setWantsLayer:true];
     [headerView setBackgroundColor:[NSColor whiteColor]];
     [[exportWindow contentView] addSubview:headerView];
@@ -242,18 +242,12 @@ function UI() {
     [titleField setFont:[NSFont boldSystemFontOfSize:14]];
     [headerView addSubview:titleField];
 
-    var projectsLabel = createLabel("Projects", 12, false, NSMakeRect(45, 335, 385, 25));
+    var projectsLabel = createLabel("Projects", 12, false, NSMakeRect(45, 278, 385, 25));
     [[exportWindow contentView] addSubview:projectsLabel];
 
-    var projectsField = [[NSComboBox alloc] initWithFrame: NSMakeRect(45, 313, 250, 25)];
+    var projectsField = [[NSComboBox alloc] initWithFrame: NSMakeRect(45, 260, 250, 25)];
     [projectsField setCompletes:true];
     [[exportWindow contentView] addSubview:projectsField];
-
-    var boardsLabel = createLabel("Boards", 12, false, NSMakeRect(45, 278, 385, 25));
-    [[exportWindow contentView] addSubview:boardsLabel];
-
-    var boardsField = [[NSComboBox alloc] initWithFrame: NSMakeRect(45, 260, 250, 25)];
-    [[exportWindow contentView] addSubview:boardsField];
 
     var sectionsLabel = createLabel("Sections", 12, false, NSMakeRect(45, 225, 385, 25));
     [[exportWindow contentView] addSubview:sectionsLabel];
@@ -269,7 +263,6 @@ function UI() {
 
     //default function
     var projectSelected = nil;
-    var boardSelected = nil;
     var sectionSelected = nil;
 
     var updateProjects = function() {
@@ -281,7 +274,7 @@ function UI() {
         if (lastProjectId == project.project_id) {
           [projectsField selectItemAtIndex:i];
           projectSelected = project;
-          updateBoards();
+          updateSections();
         }
       }
 
@@ -289,28 +282,6 @@ function UI() {
       if(index == -1) {
         [projectsField selectItemAtIndex:0];
         projectSelected = projects[0];
-        updateBoards();
-      }
-    }
-
-    var updateBoards = function() {
-      boardsField.removeAllItems();
-      var lastBoardId = api.getSetting("last-board-id");
-      for(var i = 0; i < projectSelected.sections.length; i++) {
-        var section = projectSelected.sections[i];
-        [boardsField addItemWithObjectValue:section.name];
-
-        if (lastBoardId == section.id) {
-          [boardsField selectItemAtIndex:i];
-          boardSelected = section;
-          updateSections();
-        }
-      }
-
-      var index = [boardsField indexOfSelectedItem];
-      if(index == -1) {
-        [boardsField selectItemAtIndex:0];
-        boardSelected = projectSelected.sections[0];
         updateSections();
       }
     }
@@ -318,13 +289,13 @@ function UI() {
     var updateSections = function() {
       sectionsField.removeAllItems();
       var lastSectionId = api.getSetting("last-section-id");
-      for(var i = 0; i < boardSelected.subsections.length; i++) {
-        var subsection = boardSelected.subsections[i];
-        [sectionsField addItemWithObjectValue:subsection.name];
+      for(var i = 0; i < projectSelected.sections.length; i++) {
+        var section = projectSelected.sections[i];
+        [sectionsField addItemWithObjectValue:section.name];
 
-        if (lastSectionId == subsection.id) {
+        if (lastSectionId == section.id) {
           [sectionsField selectItemAtIndex:i];
-          sectionSelected = subsection;
+          sectionSelected = section;
           updatePages();
         }
       }
@@ -332,7 +303,7 @@ function UI() {
       var index = [sectionsField indexOfSelectedItem];
       if(index == -1) {
         [sectionsField selectItemAtIndex:0];
-        sectionSelected = boardSelected.subsections[0];
+        sectionSelected = projectSelected.sections[0];
         updatePages();
       }
     }
@@ -370,25 +341,10 @@ function UI() {
         var project = projects[index];
         projectSelected = project;
 
-        updateBoards();
-      })
-    });
-    [projectsField setDelegate:projectsFieldDelegate.getClassInstance()];
-
-    var boardsFieldDelegate = new MochaJSDelegate({
-      "controlTextDidChange:":(function(note) {
-        sectionsField.removeAllItems();
-        boardsSelected = nil;
-      }),
-      "comboBoxSelectionIsChanging:":(function(note) {
-        var index = [boardsField indexOfSelectedItem];
-        var board = projectSelected.sections[index];
-        boardSelected = board;
-
         updateSections();
       })
     });
-    [boardsField setDelegate:boardsFieldDelegate.getClassInstance()];
+    [projectsField setDelegate:projectsFieldDelegate.getClassInstance()];
 
     var sectionsFieldDelegate = new MochaJSDelegate({
       "controlTextDidChange:":(function(note) {
@@ -397,7 +353,7 @@ function UI() {
       }),
       "comboBoxSelectionIsChanging:":(function(note) {
         var index = [sectionsField indexOfSelectedItem];
-        var section = boardSelected.subsections[index];
+        var section = projectSelected.sections[index];
         sectionSelected = section;
 
         updatePages();
@@ -450,7 +406,6 @@ function UI() {
 
         if (uploadResult == api.UploadEnum.SUCCESS) {
           api.setSetting("last-project-id", projectSelected.project_id);
-          api.setSetting("last-board-id", boardSelected.id);
           api.setSetting("last-section-id", sectionSelected.id);
           api.setSetting("last-page-id", pageId);
           [app stopModal];

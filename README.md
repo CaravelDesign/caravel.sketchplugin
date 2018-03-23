@@ -1,6 +1,6 @@
 # Caravel ❤ Sketch
 https://www.caravel.design
-**[To install our Sketch plug-in please click here](https://github.com/CaravelDesign/caravel.sketchplugin/releases/download/1.0.0/caravel.sketchplugin.zip)**
+**[To install our Sketch plug-in please click here](https://github.com/CaravelDesign/caravel.sketchplugin/releases/download/2.0.0/caravel.sketchplugin.zip)**
 
 ## Enough repetition. You can now quickly import your designs from Sketch.
 Product design is on the rise. The tools for the craft keep on multiplying, but that doesn’t mean your workflow should be doing the same. 
@@ -17,7 +17,7 @@ Whenever you sync your Sketch files with Caravel, you get to choose which artboa
 We’ve also ensured that the order of your Sketch artboards is loaded the right way in Caravel. Just make sure you name them with number prefixes to keep them tidy. [Here’s a helpful tool for doing that](https://github.com/Chuckland/sketch-number-artboards).
 
 ## Getting started
-**[To install our Sketch plug-in please click here](https://github.com/CaravelDesign/caravel.sketchplugin/releases/download/1.0.0/caravel.sketchplugin.zip)**
+**[To install our Sketch plug-in please click here](https://github.com/CaravelDesign/caravel.sketchplugin/releases/download/2.0.0/caravel.sketchplugin.zip)**
 
 Once the plug-in is installed, all you need to do is log in to your Caravel account from the Sketch plugin menu. Then you can start syncing your design as follows:
 
@@ -25,7 +25,7 @@ Once the plug-in is installed, all you need to do is log in to your Caravel acco
 
 2 — Go to the Sketch plugin menu > Caravel > “Sync artboards with Caravel”
 
-3 — Select a project, a board, a section, and the name of the screen you want to send your designs to
+3 — Select a project, a section, and the name of the screen you want to send your designs to
 
 4 — Confirm sync
 
