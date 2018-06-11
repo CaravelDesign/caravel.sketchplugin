@@ -171,7 +171,7 @@ function Api() {
       args.addObject("Content-Type: multipart/form-data");
       args.addObject("--header");
       args.addObject("token: " + this.getToken());
-      //args.addObject("--compressed");
+      args.addObject("--compressed");
 
       for (var i = 0; i < list.length; i++) {
         args.addObject("-F");
